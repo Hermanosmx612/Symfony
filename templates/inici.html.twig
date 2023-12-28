@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block title %}Pagina Principal{% endblock %}
+{% block stylesheets %}
+      
+          <link rel="stylesheet" href="{{ asset('estilosCss/estilsInici.css') }}" />
+{% endblock %}
+
+{% block body %}
+<h1 id="titolInici">Projecte Symfony Equips DAW</h1>
+<p id="paragrafInici">Inici programa gestio d'equips 2n de DAW: Alex Garcia Gandia <br>
+
+<img class="imatgeInici" src="{{ asset('Impact/assets/img/about.jpg') }}" onclick="window.location='{{ path('dades_equip', {'codi': '4'}) }}'">
+
+{% endblock %}

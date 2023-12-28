@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+{% block title %}Equips{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('estilosCss/estilsEquip.css') }}" />
+{% endblock %}
+
+{% block body %}
+   
+
+{% set resultat = equips|filter(equip => equip.codi == codi) %}
+
+{% if resultat|length > 0 %}
+        
+        {% set equip = resultat|first %}
+        <h1 id="titolEquip">Dades de l'Equip</h1>
+        <p class="paragrafEquip"> <img class = "imatgeEquip" src="{{ asset('/img/contento.png') }}" alt=""></p>
+        <div class="paragrafEquip">
+            <p class="paragrafEquip">Codi: {{ equip.codi }}</p>
+            <p class="paragrafEquip">Nom: {{ equip.nom }}</p>
+            <p class="paragrafEquip">Cicle: {{ equip.cicle }}</p>
+            <p class="paragrafEquip">Curs: {{ equip.curs }}</p>
+            <div class="paragrafEquip">Membres:
+                <ul>
+                    {% for membre in equip.membres %}
+                        <p class="paragrafEquip">{{ membre }}</p>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% else %}
+        <p class="paragrafEquip"><img class = "imatgeEquip" src="{{ asset('/img/enfadado.png') }}" alt=""> </p>
+        <div class="paragrafEquip"><p>Equip no trobat amb codi: {{ codi }}</p></div>
+    {% endif %}
+
+
+
+
+
+{# <h1 id="titolEquip">Dades Equip {{}}</h1>
+<p id="paragrafInici">Inici programa gestio d'equips 2n de DAW: Alex Garcia Gandia <br><img class="imatgeInici" src="{{ asset('Impact/assets/img/about.jpg') }}" /></p> #}
+
+<div class="paragrafEquip">
+    <span>
+        <img class="fotoHome" src="{{ asset('img/casa.png') }}" onclick="window.location='{{ path('inici')}}'">
+        <p class="inici" onclick="window.location='{{ path('inici')}}'">Torna a l'inici</p>
+    </span>
+</p>
+
+{% endblock %}
+
