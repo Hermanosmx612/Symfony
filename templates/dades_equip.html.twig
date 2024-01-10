@@ -10,9 +10,9 @@
 {% set resultat = equips|filter(equip => equip.codi == codi) %}
 
 {% if resultat|length > 0 %}
-        
         {% set equip = resultat|first %}
         <h1 id="titolEquip">Dades de l'Equip</h1>
+        <p class="paragrafEquip"><img class="imatgeEquip" src="{{ asset('img/' ~ equip.imatge) }}" alt=""></p>        
         <p class="paragrafEquip"> <img class = "imatgeEquip" src="{{ asset('/img/contento.png') }}" alt=""></p>
         <div class="paragrafEquip">
             <p class="paragrafEquip">Codi: {{ equip.codi }}</p>

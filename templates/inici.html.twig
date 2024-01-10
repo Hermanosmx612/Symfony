@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}Pagina Principal{% endblock %}
 {% block stylesheets %}
-      
           <link rel="stylesheet" href="{{ asset('estilosCss/estilsInici.css') }}" />
 {% endblock %}
 
@@ -10,5 +9,10 @@
 <p id="paragrafInici">Inici programa gestio d'equips 2n de DAW: Alex Garcia Gandia <br>
 
 <img class="imatgeInici" src="{{ asset('Impact/assets/img/about.jpg') }}" onclick="window.location='{{ path('dades_equip', {'codi': '4'}) }}'">
+
+<h1 id="titolInici">Llistat d'equips</h1>
+{% for equip in equips %}
+        <p id="paragrafInici">{{ equip.nom }}</p>
+{% endfor %}
 
 {% endblock %}
